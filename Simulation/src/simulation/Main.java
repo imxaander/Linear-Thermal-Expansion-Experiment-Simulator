@@ -11,8 +11,8 @@ public class Main {
         SC.Initialize();
         TS  = new TitleScreen(); 
         //set the visibility of the window to true on start
-        //TS.setVisible(true);
+        TS.setVisible(true);
         SS = new SimulationScreen();
-        SS.setVisible(true);
+//        SS.setVisible(true);
     }
 }

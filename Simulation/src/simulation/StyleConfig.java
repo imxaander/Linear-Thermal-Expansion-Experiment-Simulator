@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class StyleConfig {
     // COLORS!! YEY
-    public static Color BUTTON_BACKGROUND_COLOR = Color.ORANGE;   
+    public static Color BUTTON_BACKGROUND_COLOR = HexToColor("#ff6100");   
     public static Color BUTTON_TEXT_COLOR = Color.WHITE;
     
     // BUTTON STYLES CONFIGURATION :)
@@ -43,16 +43,15 @@ public class StyleConfig {
     //TEXTS
     public static int TITLE_SCREEN_TEXT_WIDTH= 370;
     
-    
     //INITIAL METAL LIST 
-    public static String DEFAULT_METAL_NAMES[] = {"Gold", "Aluminum", "Custom..."};
+    public static String DEFAULT_METAL_NAMES[] = {"Gold", "Aluminum", "Copper"};
     
     //this is in N x 10^-6 where N is the input
     public static int DEFAULT_METAL_COUNT = 3;
-    public static Float DEFAULT_METAL_COEFFS[] = {17f, 12f, 0f};
+    public static Float DEFAULT_METAL_COEFFS[] = {14.2f, 23.6f, 16.5f};
     public static Color DEFAULT_METAL_COLORS[] = {Color.BLUE, Color.CYAN, Color.GREEN};
-    
-    
+    public static String DEFAULT_METAL_IMAGEPATHS[] = {"assets/Images/goldrod.png", "assets/Images/metalrod.png", "assets/Images/copperrod.png"};
+
     //SIMULATION STYLES
     public static int METAL_SELECTOR_WIDTH = 100;
     public static int METAL_SELECTOR_HEIGHT = 30;
@@ -87,7 +86,24 @@ public class StyleConfig {
 //        }
     }
     
-    
+    public static Color HexToColor(String hex) 
+{
+    hex = hex.replace("#", "");
+    switch (hex.length()) {
+        case 6:
+            return new Color(
+            Integer.valueOf(hex.substring(0, 2), 16),
+            Integer.valueOf(hex.substring(2, 4), 16),
+            Integer.valueOf(hex.substring(4, 6), 16));
+        case 8:
+            return new Color(
+            Integer.valueOf(hex.substring(0, 2), 16),
+            Integer.valueOf(hex.substring(2, 4), 16),
+            Integer.valueOf(hex.substring(4, 6), 16),
+            Integer.valueOf(hex.substring(6, 8), 16));
+    }
+    return null;
+}
     //initializes fonts
     //offsetObj is the object that the function needs to get the width, for offset.
     public static int getWindowCenterWidth(int objectWidth){

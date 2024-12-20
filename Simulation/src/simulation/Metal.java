@@ -14,11 +14,12 @@ public class Metal {
     public String name;
     public Float coefficient;
     public Color color;
-    
-    Metal(String name, float coeff, Color color){
+    public String imagePath;
+    Metal(String name, float coeff, Color color, String imagePath){
         this.name = name;
         this.coefficient = coeff;
         this.color = color;
+        this.imagePath = imagePath;
     }
     
     @Override
